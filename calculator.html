@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+
+  <style>
+    #showcase {
+      background-image: url('/static/shutterstock_1036798300-750x450.jpg') no-repeat;
+      height: 500px;
+    
+      }
+
+    option {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      text-align: center;
+      background-size: 100px;
+    }
+
+    .name {
+      text-align: left;
+      padding-top: -200px;
+      color: white;
+    }
+
+    .names {
+      color: aliceblue;
+      text-align: left;
+      padding-top: 20px;
+    }
+
+    #showcase .showcase-content {
+      font-size: larger;
+      color: rgb(255, 251, 251);
+      text-align: left;
+      padding-left: -10px;
+      padding-top: 30px;
+    }
+
+    #showcase .showcase-content h2 {
+      font-size: 25px;
+      color: rgb(255, 255, 255);
+      padding-top: 4px
+    }
+
+    #showcase .showcase-content h4 {
+      font-size: 20px;
+      color: rgb(12, 12, 12);
+    }
+    .sel{
+      margin-top: 10%;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    #xyza {
+      background-color: #444;
+      color: white;
+      display: block;
+      border: none;
+
+      padding: 15px 32px;
+      text-decoration: none;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      margin-left: 3cm;
+      float: left;
+    }
+
+    input#xyza:hover {
+      background: #f7c08a;
+      color: black;
+
+    }
+
+    #my h4 {
+      margin-top: -7cm;
+      margin-left: 6cm;
+      padding: -100%;
+      width: 60%;
+      border: 10cm;
+      font-weight: bolder;
+      font-size: 30px;
+    }
+
+    .well {
+      width:400px;height:60px;
+  border: solid 1px #555;
+  background-color: rgba(221, 236, 238, 0);
+  box-shadow: 10px -10px 5px  rgba(0,0,0,0.3);
+  -moz-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+  -webkit-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+  -o-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+  border-radius:25px;
+      margin-left: 55%;
+    }
+
+    #result{ 
+      margin-top: 5%;
+      margin-right: 40%;
+      text-align: center;
+      text-decoration: dashed;
+      font-weight: bold;
+      
+    }
+    .btn{
+      margin: 0;
+      position: absolute;
+      left: 50%;
+      box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+  -moz-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+  -webkit-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+  -o-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);;
+        }
+      
+      /* select{
+        margin: 40px;
+    background: rgba(10, 61, 90, 0);
+    color: white;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+
+      }
+    select option {
+    margin: 40px;
+    background: rgba(159, 193, 212, 0);
+    color: rgb(255, 255, 255);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+} */
+
+  </style>
+
+  <title>effiency calculator</title>
+</head>
+
+<body>
+  <header>
+    <nav id="navbar">
+      <div class="container">
+        <h1 class="logo"><a href="welcome.html">BCI</a></h1>
+        <ul>
+          <li><a href="welcome.html">HOME</a></li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">ABOUT
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="./BCI.pdf">BCI</a>
+                <a href="./our project.html">Our Project</a>
+              </div>
+          </li>
+          <li><a href="./Feedback.html">FEEDBACK</a></li>
+        </ul>
+      </div>
+    </nav>
+    <form action="/calculator" method="POST">
+      <div id="showcase">
+        <div class="container">
+          <div class="showcase-content">
+            <h2>EFFICICENCY CALCULATOR</h2>
+            <div class="sel" >
+            <div>
+            <h4 class="d">Dataset</h4>
+            <select class="selection" name="dataset">
+              <option disabled="disabled" selected="selected">Choose option</option>
+              <option value="Epilepsy">Epileptic</option>
+              <option value="Eye State">Eye state</option>
+              <!-- <option value="data3">Cogntive</option> -->
+            </select>
+            </div>
+            <div>
+            <h4 class="d">Feature</h4>
+            <select class="selection" name="feature">
+              <option disabled="disabled" selected="selected">choose option</option>
+              <option value="PCA">PCA</option>
+              <option value="statistics">Statistics</option>
+              <!-- <option value="feat3">none</option> -->
+            </select>
+            </div>
+            <div>
+            <h4 class="d">Classifier</h4>
+            <select class="selection" name="classifier">
+              <option disabled="disabled" selected="selected">choose option</option>
+              <option value="LR">Logistic</option>
+              <option value="SVM">SVM</option>
+              <!-- <option value="KNN">KNN</option> -->
+              <!-- <option value="class4">Random Forest</option> 
+          <option value="class5">Decision Tree</option> -->
+            </select>
+            </div>
+            <div>
+              <h4 class="d">Test Cases</h4>
+                <select class="selection" name="test cases">
+                  <option disabled="disabled" selected="selected">Select Test Cases</option>
+                  <option value="Test Case 01">Test Case 01 </option>
+                  <option value="Test Case 02">Test Case 02 </option>
+                  <option value="Test Case 03">Test Case 03</option>
+                  <option value="Test Case 04">Test Case 04</option>
+                  <option value="Test Case 05">Test Case 05</option>
+                  <option value="Test Case 06">Test Case 06</option>
+                  <option value="Test Case 07">Test Case 07 </option>
+                  <option value="Test Case 08">Test Case 08</option>
+                  <option value="Test Case 09">Test Case 09</option>
+                  <option value="Test Case 10">Test Case 10</option>
+                  <option value="Test Case 11">Test Case 11</option>
+                  <option value="Test Case 12">Test Case 12</option>
+                  <option value="Test Case 13">Test Case 13</option>
+                </select>
+                </div>
+            </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="btn">
+                  <button class="btn btn-primary">Predict</button> 
+                  <!-- <input type="button" onclick="show()" value="submit"/> -->
+                </div>
+                <!-- <br><br>
+                <div id="result">
+                  <div class="well">
+                    <h4 color="white">Model Prediction:{{class_l}}</h4>
+                    <h4>Actual Prediction:{{a_p}}</h4>
+                  </div>
+                </div>
+                <br><br>
+               -->
+                <!-- <input type="submit" name="xxx" id="xyza" value="Submit" onclick="document.getElementById('my').style.display='block';">
+                   <div id="my" style="display: none">
+                   <h4>Model Prediction:</h4>{{class_l}}
+                    <h4>Actual Prediction:</h4>{{a_p}}           
+                </div>    -->
+                <!-- <input type="button" onclick="show()" value="submit" />
+                <p>Prediction : <span id="display_message"></span></p> -->
+               
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- <script type="text/JavaScript">
+    function show() {
+      document.getElementById("discount").innerHTML=(" Prediction is :"{{class_l}});
+    }
+    </script> -->
+
+    <!-- <script>
+      let selection = document.querySelector('.option');
+      let result = document.querySelector('.names');
+
+      selection.addEventListener('change', () => {
+        result.innerText = selection.options[selection.selectedIndex].text;
+      });
+    </script>
+    <script type="text/JavaScript">
+    function show() {
+      var message = {{class_l}}
+      display_message.innerHTML = message;
+      
+    }
+    </script> -->
+</body>
+
+</html>
